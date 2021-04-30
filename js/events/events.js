@@ -25,11 +25,19 @@ for (const button of myButtonsLogin) {
 
 let limpiar = $("#clean");
 
-limpiar.onclick = () => {
+limpiar.click( ()=> {
     let lista = $("#myCarrito");
-    lista.parentNode.removeChild(lista)
+    // Esto es removeChild pero no es jQuery
+    //lista.parentNode.removeChild(lista)
+
+    // En cambio lo vamos a esconder en 1500 ms
+    // lista.hide(1500);
+
+    // 2da opcion, lo escondo en 1500 ms y lo muestro al final.
+    lista.hide(1500, () => lista.show(1000));
+
     console.log("Voy a limpiar el carrito")
-};
+});
 
 
 // Ahora Arroy function
