@@ -18,7 +18,7 @@ $(".titulo").animate({
 $("body").prepend('<p id="p1" > Coder Animation </p>');
 
 $("#p1").css("color", "red")
-    .slideUp(2000)
+    .slideUp(2000) // recomendacion, extraer valores numericos a constantes
     .delay(2500)
     .slideDown(2000);
 
