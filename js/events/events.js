@@ -1,8 +1,57 @@
-////////////////////////
-/// Cartel de bienvenida
-let welcome = $("body > p:nth-child(1)")
-welcome.toggle("slow", ()=> welcome.toggle(2500) );
+///////////////////////////////
+/// Coder cartel
+$("body").prepend('<p class="titulo">Coder House </p>');
 
+$(".titulo").animate({
+    left: "250px",
+    opacity: "0.2",
+    width: "150px",
+    height: "150px"
+},
+    2500,
+    () => {
+        console.log("Termino animacion")
+    });
+
+///////////////////////////////////
+// Concatenar animaciones
+$("body").prepend('<p id="p1" > Coder Animation </p>');
+
+$("#p1").css("color", "red")
+    .slideUp(2000)
+    .delay(2500)
+    .slideDown(2000);
+
+////////////////////////
+/// Cartel de bienvenida al usuario
+let welcome = $("body > p:nth-child(3)")
+
+// Esto es un ejemplo pero recomiendo cambiar el CSS
+// dinamicamente solo a partir de interacciones
+// con el usuario.
+
+const myWelcomeCSS = {
+    "display": "none",
+    "font-size": "40px"
+};
+
+welcome.css(myWelcomeCSS)
+welcome.toggle("slow", () => welcome.toggle(2500));
+
+/////////////////////////////////////////////////////////
+// Animo para hacer un scroll hasta el ultimo formulario
+//let elementP = document.createElement("p"); // <- Cual es el reemplazo de jQuery?
+$("body").prepend(`</div>
+                <a href="#"> IR al formulario </a>
+                <p style="height: 200px"></p>
+                </div>`);
+
+$('a').click((evento) => {
+    evento.preventDefault();
+    $('html, body').animate({
+        scrollTop: $("#support").offset().top
+    }, 2000);
+});
 
 let myButtonsLogin = $("button");//document.getElementsByTagName("button");
 
@@ -31,7 +80,7 @@ for (const button of myButtonsLogin) {
 
 let limpiar = $("#clean");
 
-limpiar.click( ()=> {
+limpiar.click(() => {
     let lista = $("#myCarrito");
     // Esto es removeChild pero no es jQuery
     //lista.parentNode.removeChild(lista)
@@ -55,7 +104,7 @@ limpiar.click( ()=> {
 let myNewUserInput = $("#usuario");
 
 myNewUserInput.onkeydown = () => console.log("tecla presionada");
-myNewUserInput.onkeyup =  () => console.log("se dejo presionar tecla")
+myNewUserInput.onkeyup = () => console.log("se dejo presionar tecla")
 
 
 
@@ -69,7 +118,7 @@ let mySupportChat = $("#supportChat");
 //myForm.addEventListener("submit", sendChatText);
 myForm.submit(sendChatText);
 
-function sendChatText(evento){
+function sendChatText(evento) {
     // Como se que es un evento submit... prevengo/evito el comportamiento default
     // Que es volver a cargar la pagina
     evento.preventDefault();
@@ -88,7 +137,7 @@ function sendChatText(evento){
 }
 
 $(document).ready(() => {
-    $(".btnProducto").click((e)=>{
+    $(".btnProducto").click((e) => {
         console.log(e.target);
     });
 });
