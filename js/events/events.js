@@ -1,3 +1,9 @@
+////////////////////////
+/// Cartel de bienvenida
+let welcome = $("body > p:nth-child(1)")
+welcome.toggle("slow", ()=> welcome.toggle(2500) );
+
+
 let myButtonsLogin = $("button");//document.getElementsByTagName("button");
 
 // Primero defino una funcion
